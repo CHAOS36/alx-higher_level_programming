@@ -1,0 +1,104 @@
+Importation de la classe depuis le module :
+>>> BaseGeometry = import('7-base_geometry').BaseGeometry
+
+Essai d'affichage de la zone
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() n'est pas implémenté
+
+Tentative de passage d'un argument non entier
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("nom", "5")
+Traceback (most recent call last):
+...
+TypeError: nom doit être un entier
+
+Tentative de passage d'une valeur booléenne
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("nom", True)
+Traceback (most recent call last):
+...
+TypeError: nom doit être un entier
+
+Tentative de passage d'une valeur négative
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("nom", -5)
+Traceback (most recent call last):
+...
+ValueError: nom doit être supérieur à 0
+
+Tentative de passage d'une valeur nulle
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("nom", 0)
+Traceback (most recent call last):
+...
+ValueError: nom doit être supérieur à 0
+
+Passage d'une valeur positive
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("nom", 5)
+
+Passage d'un seul argument à integer_validator
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("nom")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() argument requis manquant : 'valeur'
+
+integer_validator sans argument
+>>> bg = BaseGeometry()
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() arguments requis manquants : 'nom' et 'valeur'
+
+Passage de trois arguments à integer_validator
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("nom", 1, 2)
+Traceback (most recent call last):
+...
+TypeError: integer_validator() prend 3 arguments positionnels mais 4 ont été donnés
+
+Passage d'un argument à la méthode area
+>>> bg = BaseGeometry()
+>>> bg.area(5)
+Traceback (most recent call last):
+...
+TypeError: area() prend 1 argument positionnel mais 2 ont été donnés
+
+Passage de deux arguments à la méthode area
+>>> bg = BaseGeometry()
+>>> bg.area(5, 5)
+Traceback (most recent call last):
+...
+TypeError: area() prend 1 argument positionnel mais 3 ont été donnés
+
+Passage de tuple à la méthode
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("âge", (4,))
+Traceback (most recent call last):
+...
+TypeError: âge doit être un entier
+
+Passage de liste à la méthode
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("âge", [3])
+Traceback (most recent call last):
+...
+TypeError: âge doit être un entier
+
+Passage de dictionnaire à la méthode
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("âge", {3, 4})
+Traceback (most recent call last):
+...
+TypeError: âge doit être un entier
+
+Passage de None à la méthode
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("âge", None)
+Traceback (most recent call last):
+...
+TypeError: âge doit être un entier
