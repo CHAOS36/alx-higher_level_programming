@@ -7,7 +7,7 @@ class Rectangle {
 			this.height = h;
 		}
 	}
-}
+
 	print () {
 		for (let pipo = 0; pipo < this.height; pipo++) {
 			console.log('X'.repeat(this.width));
